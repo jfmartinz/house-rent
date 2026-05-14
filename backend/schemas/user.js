@@ -12,14 +12,17 @@ const user = mongoose.Schema(
     email: {
       type: String,
       required: [true, "email is required"],
+      unique: true,
+      trim: true,
+      lowercase: true,
     },
     password: {
       type: String,
       required: [true, "password is required"],
     },
-    type: {
+    role: {
       type: String,
-      required: [true, "type is required"],
+      required: [true, "role is required"],
     },
   },
   {
