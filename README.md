@@ -5,9 +5,9 @@ HouseHunt streamlines the real-estate journey by connecting buyers, sellers, ren
 **Purpose**: Simplify property discovery and management for owners and tenants with role-based access, listings, bookings, and a responsive frontend.
 
 **Functionality & Features**
-- **User roles:** Owner and Tenant with role-based access controls (see `backend/middleware/roleMiddleware.js`).
-- **Authentication:** Email/password registration and JWT-based login (`/api/auth`). See [backend/controllers/authController.js](backend/controllers/authController.js).
-- **Property listings:** Create, read, update, delete properties (owners can manage their properties). Public search endpoint supports basic text queries.
+- **User roles:** Owner and Tenant with role-based access controls
+- **Authentication:** Email/password registration and JWT-based login
+- **Property listings:** Create, read, update, delete properties (owners can manage their properties).
 - **Bookings:** Tenants can create bookings; owners can view/manage bookings.
 - **Dashboard & Views:** Frontend contains pages for login/registration, dashboards, listings, and bookings. 
 
@@ -20,13 +20,6 @@ HouseHunt streamlines the real-estate journey by connecting buyers, sellers, ren
 **Repository Structure (high level)**
 - `backend/` — Express API, controllers, routes, schemas, scripts.
 - `frontend/` — React app, components, features, styles.
-
-Key files:
-- [backend/index.js](backend/index.js)
-- [backend/config/config.js](backend/config/config.js)
-- [backend/controllers/authController.js](backend/controllers/authController.js)
-- [backend/schemas/property.js](backend/schemas/property.js)
-- [frontend/package.json](frontend/package.json)
 
 
 **Local Setup**
