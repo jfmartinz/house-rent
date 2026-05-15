@@ -9,16 +9,23 @@ module.exports = async (req, res, next) => {
         .send({ message: "Authorization header missing", success: false });
     }
 
-    const token = req.headers["authorization"].split(" ")[1];
-    jwt.verify(token, process.env.JWT_KEY, (err, decode) => {
+    const token = authorizationHeader.split(" ")[1];
+    if (!token) {
+      return res.status(401).send({ message: "Token missing", success: false });
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
       if (err) {
         return res
-          .status(200)
+          .status(401)
           .send({ message: "Token is not valid", success: false });
-      } else {
-        req.body.userId = decode.id;
-        next();
       }
+
+      req.user = {
+        id: decode.id,
+        role: decode.role,
+      };
+      next();
     });
   } catch (error) {
     console.error(error); // Handle or log the error appropriately

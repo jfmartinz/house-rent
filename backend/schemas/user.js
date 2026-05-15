@@ -23,10 +23,11 @@ const user = mongoose.Schema(
     role: {
       type: String,
       required: [true, "role is required"],
+      enum: ["owner", "tenant"],
     },
   },
   {
-    strict: false,
+    timestamps: true,
   },
 );
 

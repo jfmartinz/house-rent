@@ -2,33 +2,53 @@ const mongoose = require("mongoose");
 
 const bookingModel = mongoose.Schema(
   {
-    propertId: {
+    propertyId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "propertyschema",
+      ref: "property",
+      required: true,
     },
-    ownerID: {
+    ownerId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",
     },
-    userID: {
+    ownerName: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    ownerContact: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",
+      required: true,
     },
     userName: {
       type: String,
       required: [true, "Please provide a User Name"],
+      trim: true,
     },
     phone: {
-      type: Number,
+      type: String,
       required: [true, "Please provide a Phone Number"],
+      trim: true,
+    },
+    message: {
+      type: String,
+      default: "",
+      trim: true,
     },
     bookingStatus: {
       type: String,
-      required: [true, "Please provide a booking Type"],
+      enum: ["pending", "accepted", "rejected"],
+      default: "pending",
     },
   },
   {
-    strict: false,
+    timestamps: true,
   },
 );
 

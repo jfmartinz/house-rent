@@ -1,0 +1,64 @@
+.login-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(250, 248, 242, 0.82);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.login-header-container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.login-brand {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.18em;
+  font-weight: 800;
+}
+
+.login-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  transition: background 0.18s ease;
+}
+
+.nav-link:hover {
+  background: rgba(20, 83, 45, 0.08);
+}
+
+.nav-button {
+  margin-left: 6px;
+}
+
+@media (max-width: 520px) {
+  .login-header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .login-nav {
+    width: 100%;
+  }
+}
